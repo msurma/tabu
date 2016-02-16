@@ -1,7 +1,12 @@
 {
   "name": "tabu-server",
-  "description": "Game based on a popular board game \"Taboo\"",
+  "description": "Game based on a popular board game.",
   "version": "0.0.1",
   "main": "server.js",
-  "dependencies": {}
+  "private": true,
+  "dependencies": {
+    "sockjs": "~0.3.15",
+    "express": "~4.13.4",
+    "lodash": "~4.4.0"
+  }
 }

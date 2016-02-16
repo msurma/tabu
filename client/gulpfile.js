@@ -43,10 +43,10 @@ gulp.task('clean-css', function (done) {
 
 gulp.task('styles', ['clean-css'], function () {
   return gulp.src([
-    './src/app/**/*.styl',
-    '!./src/app/**/_*.styl'
+    './src/app/**/*.scss',
+    '!./src/app/**/_*.scss'
   ])
-    .pipe(g.stylus({use: [require('nib')()]}))
+    .pipe(g.sass())
     .pipe(gulp.dest('./.tmp/css/'))
     .pipe(g.cached('built-css'))
     .pipe(livereload());
@@ -61,6 +61,17 @@ gulp.task('csslint', ['styles'], function () {
     .pipe(g.cached('csslint'))
     .pipe(g.csslint('./.csslintrc'))
     .pipe(g.csslint.reporter());
+});
+
+/**
+ * CoffeeScript
+ */
+gulp.task('coffee', function () {
+  return gulp.src([
+    './src/app/**/*.coffee'
+  ])
+    .pipe(g.coffee())
+    .pipe(gulp.dest('./.tmp/src/app'));
 });
 
 /**
@@ -102,7 +113,7 @@ gulp.task('vendors', function () {
  * Index
  */
 gulp.task('index', index);
-gulp.task('build-all', ['styles', 'templates'], index);
+gulp.task('build-all', ['styles', 'templates', 'coffee'], index);
 
 function index () {
   var opt = {read: false};
@@ -150,7 +161,8 @@ gulp.task('watch', ['statics', 'default'], function () {
   isWatching = true;
   // Initiate livereload server:
   g.livereload.listen();
-  gulp.watch('./src/app/**/*.js', ['jshint']).on('change', function (evt) {
+  gulp.watch('./src/app/**/*.coffee', ['coffee']);
+  gulp.watch('./.tmp/src/app/**/*.js', ['jshint']).on('change', function (evt) {
     if (evt.type !== 'changed') {
       gulp.start('index');
     } else {
@@ -159,7 +171,7 @@ gulp.task('watch', ['statics', 'default'], function () {
   });
   gulp.watch('./src/app/index.html', ['index']);
   gulp.watch(['./src/app/**/*.html', '!./src/app/index.html'], ['templates']);
-  gulp.watch(['./src/app/**/*.styl'], ['csslint']).on('change', function (evt) {
+  gulp.watch(['./src/app/**/*.scss'], ['csslint']).on('change', function (evt) {
     if (evt.type !== 'changed') {
       gulp.start('index');
     } else {
