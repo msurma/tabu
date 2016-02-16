@@ -1,0 +1,7 @@
+{
+  "name": "tabu-server",
+  "description": "Game based on a popular board game \"Taboo\"",
+  "version": "0.0.1",
+  "main": "server.js",
+  "dependencies": {}
+}
