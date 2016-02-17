@@ -20,7 +20,16 @@
   ],
   "dependencies": {
     "angular": "~1.2.14",
-    "angular-route": "~1.2.14"
+    "angular-route": "~1.2.14",
+    "animate.css": "^3.5.1",
+    "angular-bootstrap": "^1.1.2",
+    "font-awesome": "^4.5.0",
+    "bootswatch": "^3.3.6+1",
+    "angular-local-storage": "^0.2.3",
+    "angular-spinkit": "^0.3.3",
+    "angular-messages": "^1.5.0",
+    "sockjs-client": "^1.0.3",
+    "angular-animate": "^1.5.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.14"

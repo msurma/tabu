@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="well">
+        <h4>Witaj w grze Tabu!</h4>
+        <p>Todo:
+          <ul>
+            <li>Pokoje prywatne (na hasło),</li>
+            <li>Obsługa utraty połączenia (by gracz nie stracił punktów gdy wywali mu internety),</li>
+            <li>Podgląd historii kart,</li>
+            <li>Tryb drużynowy,</li>
+            <li>Opis rozgrywki na podstronie "Jak grać?",</li>
+            <li>Drobne poprawki interfejsu - głównie nowe animacje,</li>
+            <li>Obsługa skórek (nocny/dzienny),</li>
+            <li>I jeszcze kilka drobnych rzeczy zapisanych w Surmowym notatniku</li>
+          </ul>
+        </p>
+        <!---
+        <p>Cieszę się, że dołączyłeś do nas! Im więcej graczy, tym więcej zabawy!</p>
+        <p>Aby dołączyć do gry, wybierz pokój z listy i kliknij <b>"Dołącz"</b>.</p>
+        <p>Pamiętaj, że gra wymaga połączenia głosowego z pozostałymi graczami. Polecamy do tego celu wykorzystanie programu <b>Skype</b> lub <b>TeamSpeak</b>. </p>
+      -->
+      </div>
+    </div>
+    <div class="col-md-9">
+      <pulse-spinner ng-if="!contentLoaded"></pulse-spinner>
+      <div class="alert alert-info" ng-if="(activeRooms == 0)">Brak aktywnych pokoi. Utwórz pokój, <a ng-click="createRoom()">klikając tutaj</a>. </div>
+      <ul class="list-group">
+        <li class="list-group-item" style="line-height: 30px" ng-repeat="(key, room) in rooms">
+          <div class="pull-left"><b>Pokój #{{ room.roomId }}</b> | {{ room.players | joinProperty:'nickname':', ' }}</div>
+          <div class="pull-right"><a href="/#room/{{ room.roomId }}" class="btn btn-primary btn-sm" ng-disabled="!room.config.allowNewUsersWhenStarted"><i class="fa fa-chevron-right"></i> Dołącz</a></div>
+          <div class="clearfix"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

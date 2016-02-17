@@ -1,20 +1,74 @@
 <!DOCTYPE html>
 <html ng-app="tabu">
-  <head>
-    <meta charset="utf-8"/>
-    <title>tabu</title>
-    <!-- inject:vendor:css -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body>
-    <h1>tabu</h1>
-    <h2>Your new AngularJS app is now ready...</h2>
-    <ng-view></ng-view>
-    <!-- inject:vendor:js -->
-    <!-- endinject -->
-    <!-- inject:js -->
-    <!-- endinject -->
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Tabu!</title>
+  <link rel="stylesheet" href="/assets/bootswatch/superhero/bootstrap.min.css">
+  <!-- inject:vendor:css -->
+  <link rel="stylesheet" href="/animate.css/animate.css">
+  <link rel="stylesheet" href="/angular-spinkit/build/angular-spinkit.min.css">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/css/todo/todo.css">
+  <!-- endinject -->
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Rozwiń menu</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/#/">Tabu!</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <a ng-click="createRoom()">
+              <i class="fa fa-plus"></i> Utwórz pokój</a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-question-circle"></i> Jak grać?</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a data-toggle="modal" ng-click="openSettings()">
+              <i class="fa fa-cog"></i> Ustawienia</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+
+  <ng-view></ng-view>
+  <!-- inject:vendor:js -->
+  <script src="/angular/angular.js"></script>
+  <script src="/angular-route/angular-route.js"></script>
+  <script src="/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/jquery/dist/jquery.js"></script>
+  <script src="/angular-local-storage/dist/angular-local-storage.js"></script>
+  <script src="/angular-spinkit/build/angular-spinkit.js"></script>
+  <script src="/angular-messages/angular-messages.js"></script>
+  <script src="/sockjs-client/dist/sockjs.js"></script>
+  <script src="/angular-animate/angular-animate.js"></script>
+  <script src="/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="/tabuUI/tabuUI.js"></script>
+  <script src="/tabuUI/controllers/roomListCtrl.js"></script>
+  <script src="/todo/todo.js"></script>
+  <script src="/todo/todo-controller.js"></script>
+  <script src="/tabuApp/tabuApp.js"></script>
+  <script src="/app.js"></script>
+  <script src="/tabu-templates.js"></script>
+  <!-- endinject -->
+</body>
+
 </html>

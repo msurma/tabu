@@ -129,9 +129,25 @@ function index () {
 /**
  * Assets
  */
-gulp.task('assets', function () {
+gulp.task('assets', ['copy-bootswatch', 'copy-fonts'], function () {
   return gulp.src('./src/app/assets/**')
     .pipe(gulp.dest('./dist/assets'));
+});
+
+/**
+ * Copy bootswatch templates
+ */
+gulp.task('copy-bootswatch', function () {
+  return gulp.src('./bower_components/bootswatch/**/bootstrap.min.css')
+    .pipe(gulp.dest('./src/app/assets/bootswatch/'));
+});
+
+/**
+ * Copy font-awesome icons
+ */
+gulp.task('copy-fonts', function () {
+  return gulp.src('./bower_components/font-awesome/fonts/*')
+    .pipe(gulp.dest('./src/app/assets/fonts'));
 });
 
 /**

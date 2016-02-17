@@ -1,13 +1,14 @@
 angular.module('tabu', [
+  'tabuUI'
+  'tabuApp'
   'ngRoute'
-  'tabu.todo'
+  'ngAnimate'
 ])
 .config ($routeProvider) ->
   'use strict'
   $routeProvider
-    .when '/todo',
-      controller: 'TodoCtrl'
-      templateUrl: '/tabu/todo/todo.html'
+    .when '/',
+      controller: 'roomListCtrl'
+      templateUrl: '/tabuUI/templates/roomList.html'
     .otherwise
-      redirectTo: '/todo'
-
+      redirectTo: '/'
